@@ -31,14 +31,14 @@
 
 			<div class="form-group" id="examdates-div"> 
 				<p class="label">Exam Dates</p>
-				<select id="examdates" name="examdate_id">
+				<select id="examdates" name="examdate_id" required >
 					<option disabled selected>Select your exam</option>
 				</select>
 			</div>
 
 			<div class="form-group" id="testingcenters-div"> 
 				<p class="label">Testing Centers </p>
-				<select id="testingcenters" name="testingcenter_id">
+				<select id="testingcenters" name="testingcenter_id" required>
 					<option disabled selected>Select your exam</option>
 				</select>
 			</div>
