@@ -77,4 +77,5 @@ At 800px or smaller with, the options' flex-direction are set to column.
 
 ## Resources
 Coldbox documents: https://coldbox.ortusbooks.com/
-Coldbox ORM documents: 
+
+Coldbox ORM documents: https://coldbox-orm.ortusbooks.com/getting-started/basic-crud-services
