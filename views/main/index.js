@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return resp.json()
             })
             .then(data => {
+                console.log(data)
                 return data;
             })
             .catch(err => {
@@ -69,12 +70,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const select = document.getElementById('examdates');
         select.innerHTML = "";
         const examDates = await getExamDates(exam_id);
-        examDates.forEach( date => {
-            const option = document.createElement("option");
-            option.setAttribute("value", date.examdate_id);
-            option.append(date.date);
-            select.appendChild(option)
-        });
+        // examDates.forEach( date => {
+        //     const option = document.createElement("option");
+        //     option.setAttribute("value", date.examdate_id);
+        //     option.append(date.date);
+        //     select.appendChild(option)
+        // });
     };
 
     function getExamTcs(exam_id){
