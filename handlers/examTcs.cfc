@@ -3,6 +3,7 @@
  */
 component{
 	property name="examtcService" inject="entityService:ExamTc";
+	// property name="async" inject="asyncManager@coldbox";
 	
 	// OPTIONAL HANDLER PROPERTIES
 	this.prehandler_only 	= "";
@@ -20,7 +21,8 @@ component{
 	};
 
 	any function show( event, rc, prc ){
-		return examtcService.findAllWhere(entityName="ExamTc", criteria={exam_id=rc.exam_id});
+		prc.etcs = examtcService.findAllWhere(entityName="ExamTc", criteria={exam_id=rc.exam_id}).getMemento( includes="id" );
+		return prc.etcs;
 	};
 
 	/**

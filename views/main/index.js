@@ -35,8 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     }
 
-    function getExamDates(exam_id){
-        return fetch("/examdates/show",{
+    async function getExamDates(exam_id){
+        return await fetch("/examdates/show",{
             method: 'post',
             headers: {
                 "content-type": "application/json",
@@ -44,16 +44,26 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             body:  JSON.stringify({ exam_id })
         })
+            // .then(resp => {
+            //     const loadingText = document.getElementById("examdates-loading");
+            //     if (loadingText !== null && loadingText !== undefined ) {
+            //         loadingText.remove();
+            //     }
+            //     return resp.json()
+            // })
+            // .then(data => {
+            //     console.log(data)
+            //     return data;
+            // })[
             .then(resp => {
-                const loadingText = document.getElementById("examdates-loading");
-                if (loadingText !== null && loadingText !== undefined ) {
-                    loadingText.remove();
-                }
-                return resp.json()
+                    
+                
+                return resp.json();
             })
             .then(data => {
-                console.log(data)
-                return data;
+                // debugger
+                   return  data //returns undefined at bugs
+            
             })
             .catch(err => {
                 console.log("fetch exam dates error:", err)
@@ -78,9 +88,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    function getExamTcs(exam_id){
+    async function getExamTcs(exam_id){
         console.log("exam_id", exam_id)
-        return fetch("/examtcs/show",{
+        return await fetch("/examtcs/show",{
             method: 'post',
             headers: {
                 "content-type": "application/json",
@@ -88,15 +98,30 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             body:  JSON.stringify({ exam_id })
         })
-            .then(resp => {
-                let loadingText = document.getElementById("testingcenters-loading");
-                if (loadingText !== null && loadingText !== undefined) {
-                    loadingText.remove();
+            // .then(resp => {
+            //     let loadingText = document.getElementById("testingcenters-loading");
+            //     if (loadingText !== null && loadingText !== undefined) {
+            //         loadingText.remove();
+            //     }
+            //     return resp.json()
+            // })
+            // .then(data => {
+            //     return data;
+            // })
+            .then(resp=> {
+                if(!resp.ok) {
+                    console.log("tc resp not okay")
                 }
-                return resp.json()
+                resp.json()
             })
             .then(data => {
-                return data;
+                let temp = data
+                // console.log("tc data", data)
+                //     data.text().then(data => {
+                //         console.log("tc data text for error", data);
+                //     })
+                // debugger;
+                return temp
             })
             .catch(err => {
                 console.log("fetch examtc error:", err)

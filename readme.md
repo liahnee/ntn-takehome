@@ -23,7 +23,7 @@ The page should load automatically. If not, you can run 'server list' to find th
 Main page is the default page. It has cfform for the scheduler to make reservation for the exam.
 Exams are fetched from database.
 
-![Image of loading exams, main index page](/loadingExams.png)
+![Image of loading exams, main index page](/loadingExamsNoTcAndDateOptions.png)
 <br/>
 
 Then, on selecting the exam, available testing centers and dates are loaded into the dropdown selection. 
@@ -67,9 +67,13 @@ Columns: reservation_id, first_name, last_name, exam_id, testingcenter_id, recei
 At 1200px or larger width, width is fixed. 
 At 800px or smaller with, the options' flex-direction are set to column.
 
-## Updates nedded 
+## Updates needed 
 
-Tests, fetch failure response, login, edit reservation per receipt/login, etc
+sometimes coldbox handler returning promise, parsing json failture
+
+## Current bug 
+'SyntaxError: Unexpected token < in JSON at position 0'
+examtc going back and forth between 500 json parse error and successful rendering.
 
 ## Resources
 Coldbox documents: https://coldbox.ortusbooks.com/
