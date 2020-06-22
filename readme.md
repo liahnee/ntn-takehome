@@ -63,12 +63,6 @@ Columns: examtc_id, exam_id, testingcenter_id, testingcenter_name
 Columns: reservation_id, first_name, last_name, exam_id, testingcenter_id, receipt_number, date
 <pre><code>CREATE TABLE reservations (reservation_id INT NOT NULL AUTO_INCREMENT, first_name varchar(20) NOT NULL, last_name VARCHAR(20) NOT NULL, receipt_number VARCHAR(40) NOT NULL, exam_id INT NOT NULL, testingcenter_id INT NOT NULL, PRIMARY KEY(reservation_id), FOREIGN KEY(exam_id) REFERENCES exams(exam_id), FOREIGN KEY(testingcenter_id) REFERENCES testingcenters(testingcenter_id));</code></pre>
 
-## Plans
-Exam dates are to be added for exams and dynamically rendered by scheduler's choice of exam. 
-Then the reservation's foreign key will be switched from exams table to exam dates table. 
-
-
-
 ## Mobile/Laptop view
 At 1200px or larger width, width is fixed. 
 At 800px or smaller with, the options' flex-direction are set to column.
