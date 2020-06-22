@@ -2,6 +2,21 @@
 
 This project was written with CFML in MVC pattern with ColdBox framework which supports Lucee and Adobe ColdFusion application servers.
 
+## To run the application in local environment
+
+1. Git clone the repo into your local directory.
+2. In order to run the server, you need to [download commandbox](https://www.ortussolutions.com/products/commandbox#download).
+3. After you start the commandbox, cd into the local git repo directory. 
+4. In your commandbox, run following installations.
+<pre><code>install coldbox
+install cborm,cborm@be,commandbox-dotenv,commandbox-cfconfig
+</code></pre>
+5. Update the .env file to connect to your local MySQL databse. 
+6. The create database and tables. SQL queries are documented below. 
+7. Run the server:
+<pre><code>server start</code></pre>
+The page should load automatically. If not, you can run 'server list' to find the local url. 
+
 ## Pages
 
 <strong>Main Page</strong><br/>
@@ -60,3 +75,6 @@ At 800px or smaller with, the options' flex-direction are set to column.
 
 
 
+## Resources
+Coldbox documents: https://coldbox.ortusbooks.com/
+Coldbox ORM documents: 
