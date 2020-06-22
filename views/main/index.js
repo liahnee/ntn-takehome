@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
             label.append(exam.name);
             exams.appendChild(label);
 
-            radio.onchange = () => {renderExamdates(exam.exam_id), renderExamTcs(exam.exam_id)};
+            radio.onclick = () => {renderExamdates(exam.exam_id), renderExamTcs(exam.exam_id)};
         })
     }
 
