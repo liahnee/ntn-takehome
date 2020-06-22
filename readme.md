@@ -67,10 +67,6 @@ Columns: reservation_id, first_name, last_name, exam_id, testingcenter_id, recei
 At 1200px or larger width, width is fixed. 
 At 800px or smaller with, the options' flex-direction are set to column.
 
-## Current bug
-
-Fetch unstable and does not always successfully receives correct response from handlers. Selecting different exam options or refreshing the page creates another success/failure.
-
 ## Updates nedded 
 
 Tests, fetch failure response, login, edit reservation per receipt/login, etc
