@@ -10,13 +10,16 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(data => {
                 return data;
             })
+            .catch(err => {
+                console.log("fetch exam list error:", err)
+            })
         return examList;
     }
 
     async function renderExamLists() {
         const exams = document.getElementById('exams');
         const examLists = await getExamList();
-        examLists.forEach( (exam, i) => {
+        examLists.forEach( (exam) => {
             const label = createLabel();
             label.setAttribute("class", "radio-label");
             label.setAttribute("for", "exam-option-".concat(exam.exam_id));
@@ -28,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
             label.append(exam.name);
             exams.appendChild(label);
 
-            radio.onclick = () => {renderExamdates(exam.exam_id), renderExamTcs(exam.exam_id)};
+            radio.onchange = () => {renderExamdates(exam.exam_id), renderExamTcs(exam.exam_id)};
         })
     }
 
@@ -42,18 +45,26 @@ document.addEventListener("DOMContentLoaded", () => {
             body:  JSON.stringify({ exam_id })
         })
             .then(resp => {
-                document.getElementById("examdates-loading").remove();
+                const loadingText = document.getElementById("examdates-loading");
+                if (loadingText !== null && loadingText !== undefined ) {
+                    loadingText.remove();
+                }
                 return resp.json()
             })
             .then(data => {
                 return data;
             })
+            .catch(err => {
+                console.log("fetch exam dates error:", err)
+            })
     }
     
     async function renderExamdates(exam_id) {
         const div = document.getElementById('examdates-div');
-        const p = newLoadingText('examdates-loading');
-        div.appendChild(p);
+        if (!document.getElementById('examdates-loading')) {
+            const p = newLoadingText('examdates-loading');
+            div.appendChild(p);
+        }
 
         const select = document.getElementById('examdates');
         select.innerHTML = "";
@@ -77,19 +88,26 @@ document.addEventListener("DOMContentLoaded", () => {
             body:  JSON.stringify({ exam_id })
         })
             .then(resp => {
-                document.getElementById("testingcenters-loading").remove();
+                let loadingText = document.getElementById("testingcenters-loading");
+                if (loadingText !== null && loadingText !== undefined) {
+                    loadingText.remove();
+                }
                 return resp.json()
             })
             .then(data => {
                 return data;
             })
+            .catch(err => {
+                console.log("fetch examtc error:", err)
+            })
     }
 
     async function renderExamTcs(exam_id) {
         const div = document.getElementById('testingcenters-div');
-        const p = newLoadingText('testingcenters-loading');
-        div.appendChild(p);
-
+        if (!document.getElementById('testingcenters-loading')) {
+            const p = newLoadingText('testingcenters-loading');
+            div.appendChild(p);
+        }
         const select = document.getElementById('testingcenters');
         select.innerHTML = "";
         const examTcs = await getExamTcs(exam_id);
@@ -99,8 +117,6 @@ document.addEventListener("DOMContentLoaded", () => {
             option.append(tc.testingcenter_name);
             select.appendChild(option)
         })
-
-        
     };
 
     renderExamLists();

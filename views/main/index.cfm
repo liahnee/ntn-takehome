@@ -25,7 +25,7 @@
 			<div class="form-group"> 
 				<p class="label"> Exams </p>
 				<p id="exams-loading">Loading...</p>
-				<ul id="exams">
+				<ul id="exams" class="radio-groups">
 				</ul>
 			</div>
 
