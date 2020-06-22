@@ -20,9 +20,9 @@ component{
 	};
 
 	any function show( event, rc, prc ){
-		etcs = examtcService.findAllWhere(entityName="ExamTc", criteria={exam_id=rc.exam_id})
+		prc.etcs = examtcService.findAllWhere(entityName="ExamTc", criteria={exam_id=rc.exam_id})
 		
-		return etcs;
+		return prc.etcs;
 	};
 
 	/**

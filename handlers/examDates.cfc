@@ -20,8 +20,8 @@ component{
 	};
 
 	any function show( event, rc, prc ){
-		dates = examdateService.findAllWhere(entityName="ExamDate", criteria={exam_id=rc.exam_id})
-		return dates;
+		prc.dates = examdateService.findAllWhere(entityName="ExamDate", criteria={exam_id=rc.exam_id})
+		return prc.dates;
 	};
 
 	/**
