@@ -1,0 +1,8 @@
+{
+    "name":".",
+    "web":{
+        "rewrites":{
+            "enable":true
+        }
+    }
+}
