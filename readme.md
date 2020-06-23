@@ -67,6 +67,9 @@ Columns: reservation_id, first_name, last_name, exam_id, testingcenter_id, recei
 At 1200px or larger width, width is fixed. 
 At 800px or smaller width, the options' flex-direction are set to column.
 
+## Update Needed
+ExamDate is left out on the reservation and confirmation page. Needs to be added in. 
+
 ## Current bug 
 'SyntaxError: Unexpected token < in JSON at position 0'
 Exam testing center and exam date fetch going back and forth between 500 JSON parse error and 200 successful renderings without changes in code. Exams list fetch is more stable than fetching testing center and exam dates.
