@@ -1,8 +1,8 @@
 # National Testing Network take-home by Catherine Yang
 
-This project was written with CFML in MVC pattern with ColdBox framework which supports Lucee and Adobe ColdFusion application servers.
+This project was written with CFML in MVC pattern with the ColdBox framework which supports Lucee and Adobe ColdFusion application servers.
 
-## To run the application in local environment
+## To run the application in the local environment
 
 1. Git clone the repo into your local directory.
 2. In order to run the server, you need to [download commandbox](https://www.ortussolutions.com/products/commandbox#download).
@@ -15,24 +15,24 @@ install cborm,cborm@be,commandbox-dotenv,commandbox-cfconfig
 6. The create database and tables. SQL queries are documented below. 
 7. Run the server:
 <pre><code>server start</code></pre>
-The page should load automatically. If not, you can run 'server list' to find the local url. 
+The page should load automatically. If not, you can run the 'server list' to find the local URL. 
 
 ## Pages
 
 <strong>Main Page</strong><br/>
-Main page is the default page. It has cfform for the scheduler to make reservation for the exam.
-Exams are fetched from database.
+The main page is the default page. It has cfform for the scheduler to make a reservation of exam date and location.
+On DomContentLoaded, the Exams list is fetched from the database.
 
 ![Image of loading exams, main index page](/loadingExamsNoTcAndDateOptions.png)
 <br/>
 
-Then, on selecting the exam, available testing centers and dates are loaded into the dropdown selection. 
+On clicking the exam, available testing centers and dates are fetched into the dropdown selection options. All fields are required. Names can only contain alphabets. 
 ![Image of loading testing center and date options, main index page](/loadingTcsAndDates.png)
 ![Image of loaded testing centers and dates, main index page](/loadedTcsAndDates.png)
 
 
 <strong>Confirmation Page</strong><br/>
-Scheduler is directed to confirmation page on submit. The page displays full name, exam name, testing center name, and automatically generated receipt number for the reservation. 
+The scheduler is directed to the confirmation page on submit. The page displays full name, exam name, testing center name, and automatically generated receipt number for the reservation. 
 
 ![Image of main confirmation page](/ConfirmationPage.png)
 
@@ -65,15 +65,11 @@ Columns: reservation_id, first_name, last_name, exam_id, testingcenter_id, recei
 
 ## Mobile/Laptop view
 At 1200px or larger width, width is fixed. 
-At 800px or smaller with, the options' flex-direction are set to column.
-
-## Updates needed 
-
-sometimes coldbox handler returning promise, parsing json failture
+At 800px or smaller width, the options' flex-direction are set to column.
 
 ## Current bug 
 'SyntaxError: Unexpected token < in JSON at position 0'
-examtc going back and forth between 500 json parse error and successful rendering.
+Exam testing center and exam date fetch going back and forth between 500 JSON parse error and 200 successful renderings without changes in code. Exams list fetch is more stable than fetching testing center and exam dates.
 
 ## Resources
 Coldbox documents: https://coldbox.ortusbooks.com/
